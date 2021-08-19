@@ -1,8 +1,11 @@
 {
   "name": "chat",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/miningape/chat.git",
   "author": "Kyle <kyle@weld.app>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  }
 }
