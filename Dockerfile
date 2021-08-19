@@ -3,5 +3,5 @@ WORKDIR /usr/chat/server
 COPY package*.json ./
 RUN npm install
 COPY . .
-EXPOSE 1337
+EXPOSE 8080
 CMD [ "node", "server.js" ]
