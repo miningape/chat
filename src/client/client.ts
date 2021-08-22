@@ -20,7 +20,7 @@ const socketHandlers = (userProfile: UserProfile) => {
   //const myInput = Container.get<Input>(Input);
   Container
     .get<SocketService>(SocketService)
-    .setSocket(io('ws://34.140.159.168:8080'));
+    .setSocket(io('ws://localhost:8080'));
   
   const socket = Container
     .get<SocketService>(SocketService)
@@ -32,10 +32,12 @@ const socketHandlers = (userProfile: UserProfile) => {
   
   socket.on('connect', () => {
     //input.read();
-    
+    socket.emit('user_profile', userProfile);
   });
   
-  socket.on('msg', handleData);
+  socket.on('msg', (profile: UserProfile, message: any) => {
+    console.log(`${profile.username}> ${message}`)
+  });
   
   socket.on('server_msg', handleData)
 }

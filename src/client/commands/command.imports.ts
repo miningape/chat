@@ -1,4 +1,5 @@
 import Container from "typedi";
+import ColorCommand from "./implementations/color.command";
 import EchoCommand from "./implementations/echo.command";
 
 export default function importCommands() {
@@ -6,6 +7,7 @@ export default function importCommands() {
   Container.import(
     [
       EchoCommand,
+      ColorCommand,
     ]
   );  
 }

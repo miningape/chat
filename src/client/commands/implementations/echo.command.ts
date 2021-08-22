@@ -7,7 +7,7 @@ import SocketService from "../../services/socket.service";
 import Command from "../command.base";
 import { CommandToken } from "../command.token";
 
-@Service( { id: CommandToken } )
+@Service( { id: CommandToken, multiple: true } )
 export default class EchoCommand implements Command {
   constructor(
     private socket: SocketService,
