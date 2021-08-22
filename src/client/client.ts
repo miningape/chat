@@ -10,9 +10,7 @@ import { CommandToken } from './commands/command.token';
 import importCommands from './commands/command.imports';
 
 // Initialize socket connection
-Container
-  .get<SocketService>(SocketService)
-  .setSocket(io('ws://localhost:8080'))
+
 
 const inputService = Container.get(Input);
 inputService.start();
@@ -20,7 +18,13 @@ inputService.start();
 const socketHandlers = (userProfile: UserProfile) => {
   // Command handler
   //const myInput = Container.get<Input>(Input);
-  const socket = Container.get(SocketService).getSocket();
+  Container
+    .get<SocketService>(SocketService)
+    .setSocket(io('ws://34.140.159.168:8080'));
+  
+  const socket = Container
+    .get<SocketService>(SocketService)
+    .getSocket();
 
   const handleData = (data: any) => {
     console.log(data);

@@ -14,7 +14,6 @@ const myRL = require('serverline');
 @Service()
 export default class Input {
   commands!: Command[];
-  socket!: Socket;
 
   constructor(
     private socketService: SocketService,
@@ -23,8 +22,6 @@ export default class Input {
   start = () => {
     importCommands();
     this.commands = Container.getMany(CommandToken);
-  
-    this.socket = this.socketService.getSocket();
 
     myRL.init();
     myRL.setCompletion(this.commands.map(command => command.pattern));
@@ -48,7 +45,7 @@ export default class Input {
 
     // Else send as msg
     if (!matched_command) {
-      this.socket.emit('msg', input);
+      this.socketService.getSocket().emit('msg', input);
     }
   }
 }
