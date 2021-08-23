@@ -13,7 +13,31 @@ export default class ColorCommand implements Command {
 
   private resetCode = '\x1b[0m';
   private colors: Record<string, string> = {
-    red: '\x1b[31m',
+	Reset: "\x1b[0m",
+	Bright: "\x1b[1m",
+	Dim: "\x1b[2m",
+	Underscore: "\x1b[4m",
+	Blink: "\x1b[5m",
+	Reverse: "\x1b[7m",
+	Hidden: "\x1b[8m",
+	
+	Black: "\x1b[30m",
+	Red: "\x1b[31m",
+	Green: "\x1b[32m",
+	Yellow: "\x1b[33m",
+	Blue: "\x1b[34m",
+	Magenta: "\x1b[35m",
+	Cyan: "\x1b[36m",
+	White: "\x1b[37m",
+	
+	B_Black: "\x1b[40m",
+	B_Red: "\x1b[41m",
+	B_Green: "\x1b[42m",
+	B_Yellow: "\x1b[43m",
+	B_Blue: "\x1b[44m",
+	B_Magenta: "\x1b[45m",
+	B_Cyan: "\x1b[46m",
+	B_White: "\x1b[47m",
   }
 
   run(argv: string[]): void {
